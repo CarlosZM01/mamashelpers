@@ -1,0 +1,30 @@
+<div class="card-columns mb-4">
+
+    <div class="col" *ngFor="let curso of cursos">
+        <div class="card mt-3">
+
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                {{curso.nombre}}
+            </div>
+
+            <img [src]="curso.imagen == '' ? '/assets/images/sin_imagen.jpg' : curso.imagen" class="card-img-top">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <a class="btn btn-info btn-block" [routerLink]="['/cursos/edit', curso.id]">EDITAR 
+                            <!-- <i class="fas fa-pen"></i> -->
+                        </a>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-danger btn-block" (click)="deleteCurso(curso.id)">
+                            ELIMINAR 
+                            <!-- <i class="far fa-trash-alt"></i> -->
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

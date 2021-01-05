@@ -1,0 +1,20 @@
+{
+    "css.styleSheets": [
+
+
+
+      "src/styles.css",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/bootstrap/dist/css/bootstrap.css",
+      "./home-page.component.css",
+      "./navigation.component.css",
+    ],
+    "git.ignoreLimitWarning": true,
+    "editor.fontLigatures": false,
+    "css.validation": {
+      
+
+      "id": false,
+      "class": false
+    }
+  }

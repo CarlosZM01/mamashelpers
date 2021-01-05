@@ -1,0 +1,6 @@
+body {
+    background-image: url("../src/assets/images/Fondo.png");
+    background-attachment: fixed;
+    background-size: cover;
+    word-break: break-all;
+}

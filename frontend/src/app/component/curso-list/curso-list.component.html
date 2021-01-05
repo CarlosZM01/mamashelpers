@@ -1,0 +1,37 @@
+<div id="container" *ngFor="let curso of cursos">
+
+    <div class="product-details">
+        <div class="product-details_cat">{{ curso.categoria }}</div>
+        <h1>{{ curso.nombre }}</h1>
+        <p id="desc">{{ curso.descripcion }}</p>
+
+        <div class="control mt-4">
+
+            <button class="btn mr-3">
+                <span class="btn btn-primary btn-block" [routerLink]="['/cursos/view', curso.id]">
+                    VER CURSO
+                </span>
+            </button>
+
+            <button class="btn">
+                <span class="price">$ {{ curso.precio }}</span>
+                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                <span class="buy">Comprar</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="product-image">
+
+        <img [src]="curso.imagen == '' ? '/assets/images/sin_imagen.jpg' : curso.imagen">
+
+        <div class="info">
+            <h3>Datos del curso:</h3>
+            <p>Especialista: {{ curso.especialista }}</p>
+            <p>Cantidad: {{ curso.cantidad }} videos</p>
+            <p>Duración: {{ curso.duracion }}</p>
+            <p>Creado: {{ curso.creacion | date: 'yyy-MM-dd' }}</p>
+        </div>
+    </div>
+
+</div>

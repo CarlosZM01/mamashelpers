@@ -1,0 +1,30 @@
+<h1>Usuarios registrados</h1>
+<hr>
+
+<div id="container">
+
+    <table class="table mt-4 animated fadeIn faster text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Modificar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of usuarios; let i = index">
+                <td scope="row">{{ i + 1 }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.nombre }} {{ usuario.apellidop }} {{ usuario.apellidom }}</td>
+                <td>{{ usuario.ciudad }}</td>
+                <td>
+                    <a class="btn btn-info mr-3" [routerLink]="['/usuarios/edit', usuario.id]"><i class="fa fa-pen"></i> Editar</a>
+                    <button class="btn btn-danger" (click)="deleteUsuario(usuario.id)"><i class="fa fa-trash"></i> Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

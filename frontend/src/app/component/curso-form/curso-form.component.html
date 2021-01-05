@@ -1,0 +1,280 @@
+<div class="col-md-7">
+    <div class="card">
+        <div class="card-body">
+
+            <form autocomplete="off" [formGroup]="forma" (ngSubmit)="edit ? updateCurso() : guardarCurso()">
+
+                <h1 class="h3 mb-3 font-weight-normal text-center">Creacion de curso</h1>
+                <hr class="mt-3 mb-4">
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Nombre</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Nombre del curso" [(ngModel)]="curso.nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+                        <small *ngIf="nombreNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Imagen</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Url de imágen" [(ngModel)]="curso.imagen" formControlName="imagen" [class.is-invalid]="imagenNoValido">
+                        <small *ngIf="imagenNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Categoría</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Categoría" [(ngModel)]="curso.categoria" formControlName="categoria" [class.is-invalid]="categoriaNoValido">
+                        <small *ngIf="categoriaNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Objetivo</label>
+                    <div class="col">
+                        <textarea class="form-control" type="text" placeholder="Objetivo" [(ngModel)]="curso.objetivo" formControlName="objetivo" [class.is-invalid]="objetivoNoValido"></textarea>
+                        <small *ngIf="objetivoNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Introducción</label>
+                    <div class="col">
+                        <textarea class="form-control" type="text" placeholder="Introducción" [(ngModel)]="curso.introduccion" formControlName="introduccion" [class.is-invalid]="introduccionNoValido"></textarea>
+                        <small *ngIf="introduccionNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Contenido</label>
+                    <div class="col">
+                        <textarea class="form-control" type="text" placeholder="Contenido" [(ngModel)]="curso.contenido" formControlName="contenido" [class.is-invalid]="contenidoNoValido"></textarea>
+                        <small *ngIf="contenidoNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Especialista</label>
+                    <div class="col">
+                        <select class="form-control" type="text" placeholder="Especialista" [(ngModel)]="curso.especialista" formControlName="especialista" [class.is-invalid]="especialistaNoValido">
+                                <option *ngFor="let esp of especialista" [value]="esp.nombre">{{ esp.nombre }}</option>
+                            </select>
+                        <small *ngIf="especialistaNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Cantidad</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Cantidad" [(ngModel)]="curso.cantidad" formControlName="cantidad" [class.is-invalid]="cantidadNoValido">
+                        <small *ngIf="cantidadNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Duración</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Duración" [(ngModel)]="curso.duracion" formControlName="duracion" [class.is-invalid]="duracionNoValido">
+                        <small *ngIf="duracionNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label">Descripción</label>
+                    <div class="col">
+                        <textarea class="form-control" type="text" placeholder="Descripción" [(ngModel)]="curso.descripcion" formControlName="descripcion" [class.is-invalid]="descripcionNoValido"></textarea>
+                        <small *ngIf="descripcionNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-3 col-form-label mb-3">Precio</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Precio" [(ngModel)]="curso.precio" formControlName="precio" [class.is-invalid]="precioNoValido">
+                        <small *ngIf="precioNoValido" class="text-danger">Campo obligatorio</small>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Título</th>
+                                    <th>URL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 0" class="form-control" type="text" placeholder="Video 1" [(ngModel)]="curso.vid1" formControlName="vid1">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 0" class="form-control" type="text" placeholder="URL 1" [(ngModel)]="curso.url1" formControlName="url1">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 1" class="form-control" type="text" placeholder="Video 2" [(ngModel)]="curso.vid2" formControlName="vid2">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 1" class="form-control" type="text" placeholder="URL 2" [(ngModel)]="curso.url2" formControlName="url2">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 2" class="form-control" type="text" placeholder="Video 3" [(ngModel)]="curso.vid3" formControlName="vid3">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 2" class="form-control" type="text" placeholder="URL 3" [(ngModel)]="curso.url3" formControlName="url3">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 3" class="form-control" type="text" placeholder="Video 4" [(ngModel)]="curso.vid4" formControlName="vid4">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 3" class="form-control" type="text" placeholder="URL 4" [(ngModel)]="curso.url4" formControlName="url4">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 4" class="form-control" type="text" placeholder="Video 5" [(ngModel)]="curso.vid5" formControlName="vid5">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 4" class="form-control" type="text" placeholder="URL 5" [(ngModel)]="curso.url5" formControlName="url5">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 5" class="form-control" type="text" placeholder="Video 6" [(ngModel)]="curso.vid6" formControlName="vid6">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 5" class="form-control" type="text" placeholder="URL 6" [(ngModel)]="curso.url6" formControlName="url6">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 6" class="form-control" type="text" placeholder="Video 7" [(ngModel)]="curso.vid7" formControlName="vid7">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 6" class="form-control" type="text" placeholder="URL 7" [(ngModel)]="curso.url7" formControlName="url7">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 7" class="form-control" type="text" placeholder="Video 8" [(ngModel)]="curso.vid8" formControlName="vid8">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 7" class="form-control" type="text" placeholder="URL 8" [(ngModel)]="curso.url8" formControlName="url8">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 8" class="form-control" type="text" placeholder="Video 9" [(ngModel)]="curso.vid9" formControlName="vid9">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 8" class="form-control" type="text" placeholder="URL 9" [(ngModel)]="curso.url9" formControlName="url9">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 9" class="form-control" type="text" placeholder="Video 10" [(ngModel)]="curso.vid10" formControlName="vid10">
+                                    </td>
+                                    <td>
+                                        <input *ngIf="curso.cantidad > 9" class="form-control" type="text" placeholder="URL 10" [(ngModel)]="curso.url10" formControlName="url10">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="form-group row" formGroupName="video">
+                    <label class="col-3 col-form-label">Video</label>
+                    <div class="form-row col">
+                        <div class="col">
+                            <input class="form-control" type="text" placeholder="titulo" formControlName="titulo" [class.is-invalid]="tituloNoValido">
+                        </div>
+                        <div class="col">
+                            <input class="form-control" type="text" placeholder="Url" formControlName="url" [class.is-invalid]="urlNoValido">
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- <div class="row">
+                    <div class="col">
+
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Título</th>
+                                    <th>Borrar</th>
+                                </tr>
+                            </thead>
+                            <tbody formArrayName="videos">
+                                <tr *ngFor="let control of videos.controls; let i = index">
+                                    <td> {{ i + 1 }} </td>
+                                    <td>
+                                        <input class="form-control" type="text" [(ngModel)]="curso.videos" [formControlName]="i">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="borrarVideo(i)">Borrar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button class="btn btn-primary mt-3 mb-5 btn-block" type="button" (click)="agregarVideo()">Agregar campo</button>
+
+                    </div>
+                </div> -->
+
+                <button type="submit" class="btn btn-primary btn-block w-50 mt-1"> Guardar </button>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="col">
+    <div class="card card-body text-center">
+        <img [src]="curso.imagen == '' ? '/assets/images/sin_imagen.jpg' : curso.imagen" class="card-img-top mb-3">
+        <h3 class="text-left mb-3">{{ curso.nombre == '' ? 'Nombre del curso' : curso.nombre }}</h3>
+        <p id="desc">{{ curso.descripcion == '' ? 'Sin descripción' : curso.descripcion }}</p>
+        <p>Categoría: {{ curso.categoria == '' ? 'Sin categoria' : curso.categoria }}</p>
+        <p>Especialista: {{ curso.especialista == '' ? 'Sin especialista' : curso.especialista }}</p>
+        <p>Videos: {{ curso.cantidad == 0 ? '0 Videos' : curso.cantidad }}</p>
+        <p>Precio: $ {{ curso.precio == 0 ? '0' : curso.precio }}</p>
+        <p>Creado: {{ curso.creacion | date: 'yyy-MM-dd' }}</p>
+    </div>
+</div>
+
+<!-- <video width="320" height="240">
+                <source src="../../../assets/videos/sheep.mp4" type="video/mp4">
+            </video>
+
+        <video width="320" height="240" controls>
+                <source src={{curso.videos}} type="video/mp4">
+            </video>
+
+        <video width="320" height="240" controls>
+                <source [src]="curso.videos" type="video/mp4">
+            </video> -->
+
+<!-- <hr>
+<pre>
+    Estado: {{ forma.valid }}
+    Status: {{ forma.status }}
+</pre>
+<pre>
+    {{ forma.value | json }}
+</pre> -->

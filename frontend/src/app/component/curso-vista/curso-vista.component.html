@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+</head>
+
+<body id="container">
+
+    <div class="row">
+        <div class="col-2">
+            <img [src]="curso.imagen" width=100% height=100%>
+        </div>
+        <div class="col-10">
+            <h2 class="col">{{ curso.nombre }}</h2>
+        </div>
+    </div>
+
+    <br>
+    <h3>Objetivo:</h3>
+    <span> {{ curso.objetivo }} </span>
+    <p>
+        <h3>Contenido:</h3>
+        <textarea readonly class="parrafo"> {{ curso.contenido}} </textarea>
+        <hr>
+
+        <div class="mt-4">
+            <div class="izquierda">
+                <video class="mb-3" [src]="videoactual" type="video/mp4" width="640" height="360" controls> </video>
+
+                <h3>Descripción:</h3>
+                <span> {{ curso.descripcion }} </span><br>
+            </div>
+
+            <div class="derecha">
+                <div *ngIf="curso.cantidad > 0" class="imgtxt" (click)="setVideo(curso.url1)">
+                    <!-- <img [src]="curso.imagen" width=30% height=30%> -->
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 1</span><br>{{ curso.vid1 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 1" class="imgtxt" (click)="setVideo(curso.url2)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 2</span><br> {{ curso.vid2 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 2" class="imgtxt" (click)="setVideo(curso.url3)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 3</span><br> {{ curso.vid3 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 3" class="imgtxt" (click)="setVideo(curso.url4)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 4</span><br> {{ curso.vid4 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 4" class="imgtxt" (click)="setVideo(curso.url5)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 5</span><br> {{ curso.vid5 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 5" class="imgtxt" (click)="setVideo(curso.url6)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 6</span><br> {{ curso.vid6 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 6" class="imgtxt" (click)="setVideo(curso.url7)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 7</span><br> {{ curso.vid7 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 7" class="imgtxt" (click)="setVideo(curso.url8)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 8</span><br> {{ curso.vid8 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 8" class="imgtxt" (click)="setVideo(curso.url9)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 9</span><br> {{ curso.vid9 }}
+                    </div>
+                </div>
+                <div *ngIf="curso.cantidad > 9" class="imgtxt" (click)="setVideo(curso.url10)">
+                    <img src="/assets/images/play1.png" width=30% height=30%>
+                    <div class="texto">
+                        <span>Video 10</span><br> {{ curso.vid10 }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</body>
+
+</html>
